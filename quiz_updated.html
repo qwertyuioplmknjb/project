@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Change Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .quiz-container {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        .quiz-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            display: none;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .options label {
+            display: block;
+            font-size: 1.25rem;
+            margin: 10px 0;
+        }
+
+        .feedback {
+            display: none;
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+
+        .feedback.correct {
+            color: #4caf50;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .congratulations {
+            display: none;
+            font-size: 1.5rem;
+        }
+
+        .congratulations .score {
+            font-size: 2rem;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="quiz-container">
+        <h1>Climate Change Quiz</h1>
+        <form id="quizForm">
+            <!-- Question 1 -->
+            <div class="question" id="q1">
+                <p>1. What is the primary cause of climate change?</p>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="1" onclick="checkAnswer(1, 1)"> Burning of fossil fuels</label>
+                    <label><input type="radio" name="q1" value="0" onclick="checkAnswer(1, 0)"> Natural weather cycles</label>
+                    <label><input type="radio" name="q1" value="0" onclick="checkAnswer(1, 0)"> Solar radiation variations</label>
+                    <label><input type="radio" name="q1" value="0" onclick="checkAnswer(1, 0)"> Volcanic eruptions</label>
+                </div>
+                <div class="feedback" id="feedback1">Correct answer is: Burning of fossil fuels</div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question" id="q2">
+                <p>2. Which greenhouse gas is the most abundant in Earth's atmosphere?</p>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="0" onclick="checkAnswer(2, 0)"> Methane</label>
+                    <label><input type="radio" name="q2" value="0" onclick="checkAnswer(2, 0)"> Nitrous oxide</label>
+                    <label><input type="radio" name="q2" value="1" onclick="checkAnswer(2, 1)"> Carbon dioxide</label>
+                    <label><input type="radio" name="q2" value="0" onclick="checkAnswer(2, 0)"> Ozone</label>
+                </div>
+                <div class="feedback" id="feedback2">Correct answer is: Carbon dioxide</div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question" id="q3">
+                <p>3. Which process removes carbon dioxide from the atmosphere?</p>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="1" onclick="checkAnswer(3, 1)"> Photosynthesis</label>
+                    <label><input type="radio" name="q3" value="0" onclick="checkAnswer(3, 0)"> Respiration</label>
+                    <label><input type="radio" name="q3" value="0" onclick="checkAnswer(3, 0)"> Combustion</label>
+                    <label><input type="radio" name="q3" value="0" onclick="checkAnswer(3, 0)"> Decomposition</label>
+                </div>
+                <div class="feedback" id="feedback3">Correct answer is: Photosynthesis</div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question" id="q4">
+                <p>4. What is the main consequence of the melting of polar ice caps?</p>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="0" onclick="checkAnswer(4, 0)"> Increase in biodiversity</label>
+                    <label><input type="radio" name="q4" value="0" onclick="checkAnswer(4, 0)"> Decrease in sea levels</label>
+                    <label><input type="radio" name="q4" value="1" onclick="checkAnswer(4, 1)"> Rise in sea levels</label>
+                    <label><input type="radio" name="q4" value="0" onclick="checkAnswer(4, 0)"> Increase in polar bear population</label>
+                </div>
+                <div class="feedback" id="feedback4">Correct answer is: Rise in sea levels</div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question" id="q5">
+                <p>5. Which sector is the largest contributor to global greenhouse gas emissions?</p>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="0" onclick="checkAnswer(5, 0)"> Transportation</label>
+                    <label><input type="radio" name="q5" value="1" onclick="checkAnswer(5, 1)"> Energy production</label>
+                    <label><input type="radio" name="q5" value="0" onclick="checkAnswer(5, 0)"> Agriculture</label>
+                    <label><input type="radio" name="q5" value="0" onclick="checkAnswer(5, 0)"> Industry</label>
+                </div>
+                <div class="feedback" id="feedback5">Correct answer is: Energy production</div>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="question" id="q6">
+                <p>6. What is the role of the ozone layer?</p>
+                <div class="options">
+                    <label><input type="radio" name="q6" value="0" onclick="checkAnswer(6, 0)"> To trap greenhouse gases</label>
+                    <label><input type="radio" name="q6" value="1" onclick="checkAnswer(6, 1)"> To protect Earth from harmful UV radiation</label>
+                    <label><input type="radio" name="q6" value="0" onclick="checkAnswer(6, 0)"> To absorb carbon dioxide</label>
+                    <label><input type="radio" name="q6" value="0" onclick="checkAnswer(6, 0)"> To increase rainfall</label>
+                </div>
+                <div class="feedback" id="feedback6">Correct answer is: To protect Earth from harmful UV radiation</div>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="question" id="q7">
+                <p>7. What is the greenhouse effect?</p>
+                <div class="options">
+                    <label><input type="radio" name="q7" value="1" onclick="checkAnswer(7, 1)"> The warming of Earth's atmosphere due to trapped gases</label>
+                    <label><input type="radio" name="q7" value="0" onclick="checkAnswer(7, 0)"> The cooling of Earth's atmosphere due to trapped gases</label>
+                    <label><input type="radio" name="q7" value="0" onclick="checkAnswer(7, 0)"> The trapping of oxygen in the atmosphere</label>
+                    <label><input type="radio" name="q7" value="0" onclick="checkAnswer(7, 0)"> The reflection of sunlight by polar ice caps</label>
+                </div>
+                <div class="feedback" id="feedback7">Correct answer is: The warming of Earth's atmosphere due to trapped gases</div>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="question" id="q8">
+                <p>8. Which international agreement aims to reduce carbon emissions?</p>
+                <div class="options">
+                    <label><input type="radio" name="q8" value="0" onclick="checkAnswer(8, 0)"> Montreal Protocol</label>
+                    <label><input type="radio" name="q8" value="1" onclick="checkAnswer(8, 1)"> Paris Agreement</label>
+                    <label><input type="radio" name="q8" value="0" onclick="checkAnswer(8, 0)"> Kyoto Protocol</label>
+                    <label><input type="radio" name="q8" value="0" onclick="checkAnswer(8, 0)"> Rio Declaration</label>
+                </div>
+                <div class="feedback" id="feedback8">Correct answer is: Paris Agreement</div>
+            </div>
+
+            <!-- Question 9 -->
+            <div class="question" id="q9">
+                <p>9. What is the effect of deforestation on climate change?</p>
+                <div class="options">
+                    <label><input type="radio" name="q9" value="0" onclick="checkAnswer(9, 0)"> Decrease in atmospheric CO2</label>
+                    <label><input type="radio" name="q9" value="1" onclick="checkAnswer(9, 1)"> Increase in atmospheric CO2</label>
+                    <label><input type="radio" name="q9" value="0" onclick="checkAnswer(9, 0)"> No effect on atmospheric CO2</label>
+                    <label><input type="radio" name="q9" value="0" onclick="checkAnswer(9, 0)"> Increase in oxygen production</label>
+                </div>
+                <div class="feedback" id="feedback9">Correct answer is: Increase in atmospheric CO2</div>
+            </div>
+
+            <!-- Question 10 -->
+            <div class="question" id="q10">
+                <p>10. What renewable energy source is derived from the Earth's heat?</p>
+                <div class="options">
+                    <label><input type="radio" name="q10" value="1" onclick="checkAnswer(10, 1)"> Geothermal energy</label>
+                    <label><input type="radio" name="q10" value="0" onclick="checkAnswer(10, 0)"> Solar energy</label>
+                    <label><input type="radio" name="q10" value="0" onclick="checkAnswer(10, 0)"> Wind energy</label>
+                    <label><input type="radio" name="q10" value="0" onclick="checkAnswer(10, 0)"> Hydroelectric energy</label>
+                </div>
+                <div class="feedback" id="feedback10">Correct answer is: Geothermal energy</div>
+            </div>
+
+            <!-- Question 11 -->
+            <div class="question" id="q11">
+                <p>11. What is the main effect of increased levels of greenhouse gases?</p>
+                <div class="options">
+                    <label><input type="radio" name="q11" value="1" onclick="checkAnswer(11, 1)"> Global warming</label>
+                    <label><input type="radio" name="q11" value="0" onclick="checkAnswer(11, 0)"> Global cooling</label>
+                    <label><input type="radio" name="q11" value="0" onclick="checkAnswer(11, 0)"> Increased biodiversity</label>
+                    <label><input type="radio" name="q11" value="0" onclick="checkAnswer(11, 0)"> Decreased rainfall</label>
+                </div>
+                <div class="feedback" id="feedback11">Correct answer is: Global warming</div>
+            </div>
+
+            <!-- Question 12 -->
+            <div class="question" id="q12">
+                <p>12. Which of the following is a consequence of ocean acidification?</p>
+                <div class="options">
+                    <label><input type="radio" name="q12" value="0" onclick="checkAnswer(12, 0)"> Increased fish populations</label>
+                    <label><input type="radio" name="q12" value="0" onclick="checkAnswer(12, 0)"> Enhanced coral reef growth</label>
+                    <label><input type="radio" name="q12" value="1" onclick="checkAnswer(12, 1)"> Coral bleaching</label>
+                    <label><input type="radio" name="q12" value="0" onclick="checkAnswer(12, 0)"> More frequent algal blooms</label>
+                </div>
+                <div class="feedback" id="feedback12">Correct answer is: Coral bleaching</div>
+            </div>
+
+            <!-- Question 13 -->
+            <div class="question" id="q13">
+                <p>13. What is the impact of climate change on weather patterns?</p>
+                <div class="options">
+                    <label><input type="radio" name="q13" value="1" onclick="checkAnswer(13, 1)"> More extreme weather events</label>
+                    <label><input type="radio" name="q13" value="0" onclick="checkAnswer(13, 0)"> More predictable weather patterns</label>
+                    <label><input type="radio" name="q13" value="0" onclick="checkAnswer(13, 0)"> Less frequent heatwaves</label>
+                    <label><input type="radio" name="q13" value="0" onclick="checkAnswer(13, 0)"> Decreased frequency of storms</label>
+                </div>
+                <div class="feedback" id="feedback13">Correct answer is: More extreme weather events</div>
+            </div>
+
+            <!-- Question 14 -->
+            <div class="question" id="q14">
+                <p>14. Which country is the largest emitter of carbon dioxide?</p>
+                <div class="options">
+                    <label><input type="radio" name="q14" value="1" onclick="checkAnswer(14, 1)"> China</label>
+                    <label><input type="radio" name="q14" value="0" onclick="checkAnswer(14, 0)"> United States</label>
+                    <label><input type="radio" name="q14" value="0" onclick="checkAnswer(14, 0)"> India</label>
+                    <label><input type="radio" name="q14" value="0" onclick="checkAnswer(14, 0)"> Russia</label>
+                </div>
+                <div class="feedback" id="feedback14">Correct answer is: China</div>
+            </div>
+
+            <!-- Question 15 -->
+            <div class="question" id="q15">
+                <p>15. Which practice can help mitigate climate change?</p>
+                <div class="options">
+                    <label><input type="radio" name="q15" value="0" onclick="checkAnswer(15, 0)"> Increasing fossil fuel use</label>
+                    <label><input type="radio" name="q15" value="1" onclick="checkAnswer(15, 1)"> Reducing deforestation</label>
+                    <label><input type="radio" name="q15" value="0" onclick="checkAnswer(15, 0)"> Expanding urban areas</label>
+                    <label><input type="radio" name="q15" value="0" onclick="checkAnswer(15, 0)"> Increasing meat consumption</label>
+                </div>
+                <div class="feedback" id="feedback15">Correct answer is: Reducing deforestation</div>
+            </div>
+
+            <!-- Question 16 -->
+            <div class="question" id="q16">
+                <p>16. What is the primary purpose of renewable energy sources?</p>
+                <div class="options">
+                    <label><input type="radio" name="q16" value="1" onclick="checkAnswer(16, 1)"> To reduce greenhouse gas emissions</label>
+                    <label><input type="radio" name="q16" value="0" onclick="checkAnswer(16, 0)"> To increase energy consumption</label>
+                    <label><input type="radio" name="q16" value="0" onclick="checkAnswer(16, 0)"> To deplete fossil fuel reserves</label>
+                    <label><input type="radio" name="q16" value="0" onclick="checkAnswer(16, 0)"> To reduce energy efficiency</label>
+                </div>
+                <div class="feedback" id="feedback16">Correct answer is: To reduce greenhouse gas emissions</div>
+            </div>
+
+            <button type="button" onclick="showNextQuestion()">Next</button>
+        </form>
+
+        <div class="congratulations">
+            <h2>Congratulations!</h2>
+            <p class="score" id="score"></p>
+            <button onclick="goBack()">Back to Site</button>
+        </div>
+        
+    </div>
+
+    <script>
+        let currentQuestion = 0;
+        let score = 0;
+
+        document.getElementsByClassName('question')[currentQuestion].style.display = 'block';
+
+        function showNextQuestion() {
+            document.getElementsByClassName('question')[currentQuestion].style.display = 'none';
+            currentQuestion++;
+            if (currentQuestion < 16) {
+                document.getElementsByClassName('question')[currentQuestion].style.display = 'block';
+            } else {
+                document.getElementById('quizForm').style.display='block';
+                document.getElementById('quizForm').style.display = 'none';
+                document.querySelector('.congratulations').style.display = 'block';
+                document.getElementById('score').innerText = `You scored ${score} out of 16!`;
+            }
+        }
+
+        function checkAnswer(questionNumber, answerValue) {
+            const feedback = document.getElementById(`feedback${questionNumber}`);
+            feedback.style.display = 'block';
+            if (answerValue === 1) {
+                score++;
+                feedback.classList.add('correct');
+            } else {
+                feedback.classList.remove('correct');
+            }
+        }
+        function goBack() {
+        window.location.href = 'https://carbongauge.wordpress.com/'; // Replace 'index.html' with your actual homepage URL
+    }
+    </script>
+</body>
+
+</html>
+
